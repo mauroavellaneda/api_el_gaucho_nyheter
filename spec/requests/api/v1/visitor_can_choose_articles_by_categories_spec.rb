@@ -1,5 +1,5 @@
 RSpec.describe Api::V1::ArticlesController, type: :request do
-  let!(:journalist){create(:user, role: 'journalist')}
+  let!(:journalist) { create(:user, role: "journalist") }
   let!(:article1) { create(:article, category: "news", journalist_id: journalist.id) }
   let!(:article2) { create(:article, category: "news", journalist_id: journalist.id) }
   let!(:article3) { create(:article, category: "sports", journalist_id: journalist.id) }

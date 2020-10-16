@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_12_062858) do
+ActiveRecord::Schema.define(version: 2020_10_16_081947) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,6 +23,7 @@ ActiveRecord::Schema.define(version: 2020_10_12_062858) do
     t.text "content"
     t.integer "category"
     t.bigint "journalist_id"
+    t.boolean "premium", default: false
     t.index ["journalist_id"], name: "index_articles_on_journalist_id"
   end
 
