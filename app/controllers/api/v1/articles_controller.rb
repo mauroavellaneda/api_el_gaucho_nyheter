@@ -11,6 +11,10 @@ class Api::V1::ArticlesController < ApplicationController
   end
 
   def show
+    # if Article.premium || current_user != subscriber
+    #   only send 300 character
+    # else
+    #   display the full content
     begin
       article = Article.find(params[:id])
       render json: article, serializer: ShowArticleSerializer
