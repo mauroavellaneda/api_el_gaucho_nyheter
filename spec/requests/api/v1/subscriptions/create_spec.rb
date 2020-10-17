@@ -7,6 +7,19 @@ RSpec.describe "POST /api/v1/subscriptions", type: :request do
   before(:each) { StripeMock.start }
   after(:each) { StripeMock.stop }
 
+  let(:product) { stripe_helper.create_product }
+  let!(:plan) do
+    stripe_helper.create_plan(
+      id: 'el_g_subscription',
+      amount: 10000,
+      currency: 'sek',
+      interval: 'month',
+      interval_count: 1,
+      name: 'El Gaucho Nyheter',
+      product: product.id
+    )
+  end
+
   let(:user) { create(:user) }
   let(:credentials) { user.create_new_auth_token }
   let(:headers) { { HTTP_ACCEPT: "application/json" }.merge!(credentials) }

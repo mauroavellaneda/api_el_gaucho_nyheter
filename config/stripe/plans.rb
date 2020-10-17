@@ -7,7 +7,7 @@ Stripe.plan :el_g_subscription do |plan|
 
   plan.interval = 'month'
 
-  plan.interval_count = 12
+  plan.interval_count = 1
 
   plan.trial_period_days = 0
 end
