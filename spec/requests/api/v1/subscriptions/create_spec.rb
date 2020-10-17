@@ -10,12 +10,12 @@ RSpec.describe "POST /api/v1/subscriptions", type: :request do
   let(:product) { stripe_helper.create_product }
   let!(:plan) do
     stripe_helper.create_plan(
-      id: 'el_g_subscription',
+      id: "el_g_subscription",
       amount: 10000,
-      currency: 'sek',
-      interval: 'month',
+      currency: "sek",
+      interval: "month",
       interval_count: 1,
-      name: 'El Gaucho Nyheter',
+      name: "El Gaucho Nyheter",
       product: product.id
     )
   end

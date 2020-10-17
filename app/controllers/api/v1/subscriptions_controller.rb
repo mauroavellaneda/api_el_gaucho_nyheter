@@ -10,16 +10,15 @@ class Api::V1::SubscriptionsController < ApplicationController
       status = Stripe::Invoice.retrieve(subscription.latest_invoice).paid
 
       if status === true
-        current_user.update_attribute(:role, 'subscriber')
-        render json: { message: "Subscription successfully created!"}, status: :created
+        current_user.update_attribute(:role, "subscriber")
+        render json: { message: "Subscription successfully created!" }, status: :created
       else
-        render_stripe_error('You got no money!')
+        render_stripe_error("You got no money!")
       end
     rescue => error
-      binding.pry
     end
   end
-  
+
   private
 
   def test_env?(customer, subscription)
@@ -38,11 +37,11 @@ class Api::V1::SubscriptionsController < ApplicationController
 
   def get_customer(stripe_token)
     customer = Stripe::Customer.list(email: current_user.email).data.first
-    customer ||= Stripe::Customer.create({ email: current_user.email, source: stripe_token, currency: 'sek' })
+    customer ||= Stripe::Customer.create({ email: current_user.email, source: stripe_token, currency: "sek" })
     customer.id
   end
 
   def render_stripe_error(error)
-    render json: { message: "Transaction was not successfull. #{error}"}, status: 422
+    render json: { message: "Transaction was not successfull. #{error}" }, status: 422
   end
 end
