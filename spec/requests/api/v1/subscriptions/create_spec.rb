@@ -42,7 +42,7 @@ RSpec.describe "POST /api/v1/subscriptions", type: :request do
     end
 
     it "is expected to make user a subscriber" do
-      expect(user.subscriber?).to eq true
+      expect(user.reload.subscriber?).to eq true
     end
   end
 end
