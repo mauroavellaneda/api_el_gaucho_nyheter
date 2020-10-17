@@ -6,6 +6,7 @@ class Api::V1::SubscriptionsController < ApplicationController
       customer_id = get_customer(params[:stripeToken])
       subscription = Stripe::Subscription.create({ customer: customer_id, plan: "el_g_subscription" })
 
+      test_env?(customer_id, subscription)
       status = Stripe::Invoice.retrieve(subscription.latest_invoice).paid
 
       if status === true
@@ -20,6 +21,13 @@ class Api::V1::SubscriptionsController < ApplicationController
   end
   
   private
+
+  def test_env?(customer, subscription)
+    if Rails.env.test?
+      invoice = Stripe::Invoice.create({ customer: customer, subscription: subscription.id, paid: true })
+      subscription.latest_invoice = invoice.id
+    end
+  end
 
   def test_env?(customer, subscription)
     if Rails.env.test?
