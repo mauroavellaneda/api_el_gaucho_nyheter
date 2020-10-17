@@ -14,6 +14,7 @@ gem "bootsnap", ">= 1.4.2", require: false
 gem 'active_model_serializers'
 gem 'devise_token_auth'
 gem 'stripe-ruby-mock', '3.0.0'
+gem 'stripe-rails'
 
 group :development, :test do
   gem "rspec-rails"

@@ -1,4 +1,4 @@
-require 'stripe_mock'
+require "stripe_mock"
 
 RSpec.describe "POST /api/v1/subscriptions", type: :request do
   let(:stripe_helper) { StripeMock.create_test_helper }
@@ -7,7 +7,6 @@ RSpec.describe "POST /api/v1/subscriptions", type: :request do
   before(:each) { StripeMock.start }
   after(:each) { StripeMock.stop }
 
-
   let(:user) { create(:user) }
   let(:credentials) { user.create_new_auth_token }
   let(:headers) { { HTTP_ACCEPT: "application/json" }.merge!(credentials) }
@@ -15,14 +14,14 @@ RSpec.describe "POST /api/v1/subscriptions", type: :request do
   describe "successfully with valid params" do
     before do
       post "/api/v1/subscriptions",
-      params: {
-        stripeToken: valid_stripe_token
-      },
-      headers: headers
+           params: {
+             stripeToken: valid_stripe_token,
+           },
+           headers: headers
     end
 
     it "is expected to return 201 response status" do
-      expect(response.status). to eq 201 
+      expect(response.status).to eq 201
     end
 
     it "is expected to return success message" do

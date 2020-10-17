@@ -38,5 +38,8 @@ module ApiElGauchoNyheter
       generate.controller_specs false
       generate.request_specs false
     end
+
+    config.stripe.publishable_key = Rails.application.credentials.stripe(:pk_key)
+    config.stripe.secret_key = Rails.application.credentials.stripe(:secret_key)
   end
 end

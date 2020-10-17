@@ -4,21 +4,21 @@ class Api::V1::SubscriptionsController < ApplicationController
   def create
     begin
       customer_id = get_customer(params[:stripeToken])
-      Subscription = Stripe::Subscription.create({ customer: customer_id, plan: "el_g_subscription" })
-      
-      status = Stripe::Invoice.retrieve(subscription.latest_invoice).paid
+      subscription = Stripe::Subscription.create({ customer: customer_id, plan: "el_g_subscription" })
+
+      status = Stripe__Invoice.retrieve(subscription.latest_invoice).paid
 
       if status === true
         current_user.update_attribute(:role, 'subscriber')
-        render json: { message: "Subscription successfully created!" }, status: :created
+        render json: { message: "Subscription successfully created!"}, status: :created
       else
         render_stripe_error('You got no money!')
       end
     rescue => error
-      
+      binding.pry
     end
   end
-
+  
   private
 
   def get_customer(stripe_token)
@@ -29,6 +29,5 @@ class Api::V1::SubscriptionsController < ApplicationController
 
   def render_stripe_error(error)
     render json: { message: "Transaction was not successfull. #{error}"}, status: 422
-    
   end
 end
