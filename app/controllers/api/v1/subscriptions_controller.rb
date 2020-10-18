@@ -16,6 +16,7 @@ class Api::V1::SubscriptionsController < ApplicationController
         render_stripe_error("You got no money!")
       end
     rescue => error
+      render_stripe_error(error.message)
     end
   end
 
