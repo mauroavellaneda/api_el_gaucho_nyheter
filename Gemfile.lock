@@ -61,6 +61,22 @@ GEM
       minitest (~> 5.1)
       tzinfo (~> 1.1)
       zeitwerk (~> 2.2, >= 2.2.2)
+    aws-eventstream (1.1.0)
+    aws-partitions (1.383.0)
+    aws-sdk-core (3.109.1)
+      aws-eventstream (~> 1, >= 1.0.2)
+      aws-partitions (~> 1, >= 1.239.0)
+      aws-sigv4 (~> 1.1)
+      jmespath (~> 1.0)
+    aws-sdk-kms (1.39.0)
+      aws-sdk-core (~> 3, >= 3.109.0)
+      aws-sigv4 (~> 1.1)
+    aws-sdk-s3 (1.83.0)
+      aws-sdk-core (~> 3, >= 3.109.0)
+      aws-sdk-kms (~> 1)
+      aws-sigv4 (~> 1.1)
+    aws-sigv4 (1.2.2)
+      aws-eventstream (~> 1, >= 1.0.2)
     bcrypt (3.1.16)
     bindex (0.8.1)
     bootsnap (1.4.8)
@@ -103,6 +119,7 @@ GEM
       concurrent-ruby (~> 1.0)
     jbuilder (2.10.1)
       activesupport (>= 5.0.0)
+    jmespath (1.4.0)
     json (2.3.1)
     jsonapi-renderer (0.2.2)
     listen (3.2.1)
@@ -193,7 +210,6 @@ GEM
       rspec-mocks (~> 3.9)
       rspec-support (~> 3.9)
     rspec-support (3.9.3)
-    rufo (0.12.0)
     shoulda-matchers (4.4.1)
       activesupport (>= 4.2.0)
     simplecov (0.16.1)
@@ -245,6 +261,7 @@ PLATFORMS
 
 DEPENDENCIES
   active_model_serializers
+  aws-sdk-s3
   bootsnap (>= 1.4.2)
   coveralls
   devise_token_auth
@@ -258,7 +275,6 @@ DEPENDENCIES
   rack-cors
   rails (~> 6.0.3, >= 6.0.3.3)
   rspec-rails
-  rufo
   shoulda-matchers
   spring
   spring-watcher-listen (~> 2.0.0)
