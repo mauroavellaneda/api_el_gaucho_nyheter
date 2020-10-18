@@ -13,7 +13,6 @@ gem "rack-cors", require: "rack/cors"
 gem "bootsnap", ">= 1.4.2", require: false
 gem 'active_model_serializers'
 gem 'devise_token_auth'
-gem 'stripe-ruby-mock', '3.0.0'
 gem 'stripe-rails'
 
 group :development, :test do
@@ -23,6 +22,7 @@ group :development, :test do
   gem "pry-rails"
   gem "pry-byebug"
   gem 'coveralls',  require:  false
+  gem 'stripe-ruby-mock', '3.0.0'
 end
 
 group :development do
