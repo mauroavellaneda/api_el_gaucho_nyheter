@@ -24,7 +24,6 @@ RSpec.describe "POST /v1/admin/articles", type: :request do
              },
            }, headers: journalist_headers
     end
-
     it "is expected to return 200 response status" do
       expect(response).to have_http_status 200
     end
