@@ -8,8 +8,6 @@ module DecodeService
     target.attach(io: io, filename: "#{image[:encoder]}.#{image[:extension]}")
   end
 
-
-
   def self.split_base64(string)
     if string =~ /^data:(.*?);(.*?),(.*)$/
       uri = {}

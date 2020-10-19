@@ -4,9 +4,13 @@ class Api::V1::Admin::ArticlesController < ApplicationController
 
   def create
     article = current_user.articles.create(article_params)
-
+    
     if article.persisted? && attach_image(article)
       render json: { message: "Article successfully created" }
+
+    elsif !attach_image(article)
+      render json: { message: "You need to have an image for the article"}, status: 422
+
     else
       error_message(article.errors)
     end
@@ -19,7 +23,6 @@ class Api::V1::Admin::ArticlesController < ApplicationController
     if params_image.present?
       DecodeService.attach_image(params_image, article.image) 
     end
-
   end
 
   def article_params

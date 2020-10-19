@@ -54,6 +54,7 @@ RSpec.describe "POST /v1/admin/articles", type: :request do
                lead: "Donald Trump has delivered a speech in front of cheering",
                content: "",
                category: "news",
+               image: image 
              },
            }, headers: journalist_headers
     end
@@ -66,6 +67,30 @@ RSpec.describe "POST /v1/admin/articles", type: :request do
       expect(response_json["message"]).to eq "Content can't be blank"
     end
   end
+
+
+  describe "unsuccessfully, no image" do
+    before do
+      post "/api/v1/admin/articles",
+           params: {
+             article: {
+               title: "Trump holds first public event since Covid diagnosis",
+               lead: "Donald Trump has delivered a speech in front of cheering",
+               content: "Donald Trump has delivered a speech in front of cheering",
+               category: "news",
+             },
+           }, headers: journalist_headers
+    end
+
+    it "is expected to return 422 response status" do
+      expect(response).to have_http_status 422
+    end
+
+    it "is expected to return error message" do
+      expect(response_json["message"]).to eq "You need to have an image for the article"
+    end
+  end
+
 
   describe "unauthorized user" do
     let(:unauthorized_user) { create(:user, role: "registered") }
