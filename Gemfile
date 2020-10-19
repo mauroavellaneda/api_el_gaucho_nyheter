@@ -16,6 +16,7 @@ gem 'devise_token_auth'
 gem 'aws-sdk-s3'
 gem 'stripe-rails'
 gem 'geocoder'
+gem 'rufo'
 
 group :development, :test do
   gem "rspec-rails"
