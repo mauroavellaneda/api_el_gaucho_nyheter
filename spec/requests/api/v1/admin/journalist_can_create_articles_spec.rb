@@ -2,6 +2,14 @@ RSpec.describe "POST /v1/admin/articles", type: :request do
   let(:journalist) { create(:user, role: "journalist") }
   let(:journalist_credentials) { journalist.create_new_auth_token }
   let(:journalist_headers) { { HTTP_ACCEPT: "application/json" }.merge!(journalist_credentials) }
+  let(:image) do
+    {
+      type: 'image/png',
+      encoder: 'name=iphone_picture',
+      data: 'asdadsdasd',
+      extension: 'png'
+    }
+  end
 
   describe "successfully with vaild params and headers" do
     before do
@@ -12,10 +20,10 @@ RSpec.describe "POST /v1/admin/articles", type: :request do
                lead: "Donald Trump has delivered a speech in front of cheering",
                content: "The event was officially a 'peaceful protest'",
                category: "news",
+               image: image 
              },
            }, headers: journalist_headers
     end
-
     it "is expected to return 200 response status" do
       expect(response).to have_http_status 200
     end
@@ -32,6 +40,9 @@ RSpec.describe "POST /v1/admin/articles", type: :request do
     it "article is expected to be associated with journalist" do
       expect(journalist.articles.first.lead).to eq "Donald Trump has delivered a speech in front of cheering"
     end
+    it 'articles is expected to have an image attached' do
+      expect(Article.last.image.attached?).to eq true
+    end
   end
 
   describe "unsuccessfully, missing content" do
@@ -43,6 +54,7 @@ RSpec.describe "POST /v1/admin/articles", type: :request do
                lead: "Donald Trump has delivered a speech in front of cheering",
                content: "",
                category: "news",
+               image: image 
              },
            }, headers: journalist_headers
     end
@@ -55,6 +67,30 @@ RSpec.describe "POST /v1/admin/articles", type: :request do
       expect(response_json["message"]).to eq "Content can't be blank"
     end
   end
+
+
+  describe "unsuccessfully, no image" do
+    before do
+      post "/api/v1/admin/articles",
+           params: {
+             article: {
+               title: "Trump holds first public event since Covid diagnosis",
+               lead: "Donald Trump has delivered a speech in front of cheering",
+               content: "Donald Trump has delivered a speech in front of cheering",
+               category: "news",
+             },
+           }, headers: journalist_headers
+    end
+
+    it "is expected to return 422 response status" do
+      expect(response).to have_http_status 422
+    end
+
+    it "is expected to return error message" do
+      expect(response_json["message"]).to eq "You need to have an image for the article"
+    end
+  end
+
 
   describe "unauthorized user" do
     let(:unauthorized_user) { create(:user, role: "registered") }
