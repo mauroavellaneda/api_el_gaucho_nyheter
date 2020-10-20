@@ -2,6 +2,8 @@ class Api::V1::ArticlesController < ApplicationController
   def index
     if params[:category]
       articles = Article.where(category: params[:category])
+    # elsif params[:location]
+      # articles = Article.where(location: params[:location])
     else
       articles = Article.all
     end

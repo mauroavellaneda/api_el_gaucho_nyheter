@@ -5,7 +5,7 @@ RSpec.describe 'Visitor can see articles based on location', type: :request do
     describe 'successfully' do
         before do
             get "/api/v1/articles",
-            params: {location: 'Sweden'}
+            params: {location: 'Sweden', location: 'United States' }
         end
         it 'returns a 200 response' do
             expect(response.status).to eq 200
