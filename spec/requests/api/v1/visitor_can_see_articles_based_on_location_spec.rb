@@ -10,12 +10,12 @@ RSpec.describe 'Visitor can see articles based on location', type: :request do
         it 'returns a 200 response' do
             expect(response.status).to eq 200
         end
-          
-          it 'returns 3 articles from Stockholm' do
-            expect(response_json['articles'].count).to eq 3
-        end
-        it 'should return the correct location on articles ' do
+        it 'should return the correct location on articles from Sweden ' do
             expect(response_json['articles'].first['location']).to eq 'Sweden'
         end
+        it 'should return the correct location on articles from United States ' do
+            expect(response_json['articles'].last['location']).to eq 'United States'
+        end
+
     end
 end
