@@ -62,7 +62,6 @@ RSpec.describe "POST /v1/admin/articles", type: :request do
     it 'an article that is premium' do 
       expect(Article.last.premium).to eq true
     end
-
   end
 
   describe "unsuccessfully, missing content" do
