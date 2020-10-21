@@ -26,7 +26,7 @@ class Api::V1::Admin::ArticlesController < ApplicationController
   end
 
   def article_params
-    params.require(:article).permit(:title, :lead, :content, :category)
+    params.require(:article).permit(:title, :lead, :content, :category, :premium)
   end
 
   def user_journalist?
