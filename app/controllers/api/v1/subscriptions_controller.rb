@@ -38,7 +38,7 @@ class Api::V1::SubscriptionsController < ApplicationController
 
   def get_customer(stripe_token)
     customer = Stripe::Customer.list(email: current_user.email).data.first
-    customer ||= Stripe::Customer.create({ email: current_user.email, source: stripe_token, currency: "sek" })
+    customer ||= Stripe::Customer.create({ email: current_user.email, source: stripe_token })
     customer.id
   end
 
