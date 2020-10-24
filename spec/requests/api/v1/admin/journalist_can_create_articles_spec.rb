@@ -20,7 +20,7 @@ RSpec.describe "POST /v1/admin/articles", type: :request do
                lead: "Donald Trump has delivered a speech in front of cheering",
                content: "The event was officially a 'peaceful protest'",
                category: "news",
-               image: image 
+               image: image,
              },
            }, headers: journalist_headers
     end
@@ -42,6 +42,25 @@ RSpec.describe "POST /v1/admin/articles", type: :request do
     end
     it 'articles is expected to have an image attached' do
       expect(Article.last.image.attached?).to eq true
+    end
+  end
+
+  describe "successfully creates premium article" do
+    before do
+      post "/api/v1/admin/articles",
+           params: {
+             article: {
+               title: "Trump holds first public event since Covid diagnosis",
+               lead: "Donald Trump has delivered a speech in front of cheering",
+               content: "The event was officially a 'peaceful protest'",
+               category: "news",
+               image: image,
+               premium: true
+             },
+           }, headers: journalist_headers
+    end
+    it 'an article that is premium' do 
+      expect(Article.last.premium).to eq true
     end
   end
 
