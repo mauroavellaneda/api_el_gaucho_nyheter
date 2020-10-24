@@ -1,13 +1,13 @@
 RSpec.describe Api::V1::ArticlesController, type: :request do
   let!(:journalist) { create(:user, role: "journalist") }
-  let!(:article1) { create(:article, category: "news", journalist_id: journalist.id) }
-  let!(:article2) { create(:article, category: "news", journalist_id: journalist.id) }
+  let!(:article1) { create(:article, category: "local", journalist_id: journalist.id) }
+  let!(:article2) { create(:article, category: "local", journalist_id: journalist.id) }
   let!(:article3) { create(:article, category: "sports", journalist_id: journalist.id) }
 
   describe "GET /api/v1/articles - Successfully" do
     before do
       get "/api/v1/articles",
-          params: { category: "news" }
+          params: { category: "local" }
     end
 
     it "should return 200 response" do
@@ -19,7 +19,7 @@ RSpec.describe Api::V1::ArticlesController, type: :request do
     end
 
     it "is expected to return news" do
-      expect(response_json["articles"][0]["category"]).to eq "news"
+      expect(response_json["articles"][0]["category"]).to eq "local"
     end
   end
 

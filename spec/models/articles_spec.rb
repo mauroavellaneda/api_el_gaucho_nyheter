@@ -10,7 +10,6 @@ RSpec.describe Article, type: :model do
     it { is_expected.to have_db_column :lead }
     it { is_expected.to have_db_column :content }
     it { is_expected.to have_db_column :category }
-    it { is_expected.to have_db_column :location }
   end
 
   describe "Validations" do

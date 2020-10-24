@@ -3,7 +3,7 @@ class Api::V1::ArticlesController < ApplicationController
     if params[:category]
       articles = Article.where(category: params[:category])
     # elsif params[:location]
-      # articles = Article.where(location: params[:location])
+    #   articles = Article.where(category: 'local').where(location: params:[:location])
     else
       articles = Article.all
     end

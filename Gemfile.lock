@@ -115,7 +115,6 @@ GEM
       factory_bot (~> 6.1.0)
       railties (>= 5.0.0)
     ffi (1.13.1)
-    geocoder (1.6.4)
     globalid (0.4.2)
       activesupport (>= 4.2.0)
     i18n (1.8.5)
@@ -213,9 +212,8 @@ GEM
       rspec-expectations (~> 3.9)
       rspec-mocks (~> 3.9)
       rspec-support (~> 3.9)
-    rspec-support (3.9.3)
-    rufo (0.12.0)
     rspec-support (3.9.4)
+    rufo (0.12.0)
     shoulda-matchers (4.4.1)
       activesupport (>= 4.2.0)
     simplecov (0.16.1)
@@ -281,7 +279,6 @@ DEPENDENCIES
   coveralls
   devise_token_auth
   factory_bot_rails
-  geocoder
   jbuilder (~> 2.7)
   listen (~> 3.2)
   pg (>= 0.18, < 2.0)
