@@ -1,5 +1,5 @@
 class ArticlesIndexSerializer < ActiveModel::Serializer
-  attributes :id, :title, :lead, :category, :image
+  attributes :id, :title, :lead, :category, :image, :location
 
   def image
     return nil unless object.image.attached?
