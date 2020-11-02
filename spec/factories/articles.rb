@@ -3,7 +3,7 @@ FactoryBot.define do
     title { "MyString" }
     lead { "MyText" }
     content { "MyString" }
-    category { "local" }
+    category { "sports" }
     association :journalist, factory: :user
   end
 end

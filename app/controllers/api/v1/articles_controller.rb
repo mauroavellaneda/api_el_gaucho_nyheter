@@ -11,8 +11,6 @@ class Api::V1::ArticlesController < ApplicationController
       end
 
     render json: articles, each_serializer: ArticlesIndexSerializer
-  rescue StandardError
-    render json: { error: "Sorry, we don't have that category" }, status: :not_found
   end
 
   def show
