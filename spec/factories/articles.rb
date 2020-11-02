@@ -4,6 +4,7 @@ FactoryBot.define do
     lead { "MyText" }
     content { "MyString" }
     category { "sports" }
+    location { "Sweden" }
     association :journalist, factory: :user
   end
 end
