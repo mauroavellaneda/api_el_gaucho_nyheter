@@ -11,7 +11,8 @@ sports_article_1 = Article.create(
   category: 'sports',
   content: "Both the men's and women's 2020 competitions were postponed in March because of the Covid-19 outbreak, with four teams still chasing the title in the men's tournament and England dominating the women's championship.",
   journalist_id: journalist.id,
-  premium: false
+  premium: false,
+  location: "International"
 )
 file = URI.open('https://d.ibtimes.co.uk/en/full/1536039/rugby-sevens-scrum.jpg')
 sports_article_1.image.attach(io: file, filename: 'scrum.jpg')
@@ -22,7 +23,8 @@ sports_article_2 = Article.create(
   category: 'sports',
   content: "Both the men's and women's 2020 competitions were postponed in March because of the Covid-19 outbreak, with four teams still chasing the title in the men's tournament and England dominating the women's championship.",
   journalist_id: journalist.id,
-  premium: false
+  premium: false,
+  location: "International"
 )
 file = URI.open('https://culturalawareness.com/wp-content/uploads/2016/04/Culture-Shock-Medium1.jpg')
 sports_article_2.image.attach(io: file, filename: 'food.jpg')
@@ -33,7 +35,8 @@ sports_article_3 = Article.create(
   category: 'politics',
   content: "Both the men's and women's 2020 competitions were postponed in March because of the Covid-19 outbreak, with four teams still chasing the title in the men's tournament and England dominating the women's championship.",
   journalist_id: journalist.id,
-  premium: false
+  premium: false,
+  location: "International"
 )
 file = URI.open('https://tse3.mm.bing.net/th?id=OIP.E2BtwfugC4oYSNq04eSILwHaEK&pid=Api&P=0&w=308&h=174')
 sports_article_3.image.attach(io: file, filename: 'scrum.jpg')
@@ -44,7 +47,8 @@ sports_article_4 = Article.create(
   category: 'politics',
   content: "Both the men's and women's 2020 competitions were postponed in March because of the Covid-19 outbreak, with four teams still chasing the title in the men's tournament and England dominating the women's championship.",
   journalist_id: journalist.id,
-  premium: false
+  premium: false,
+  location: "International"
 )
 file = URI.open('https://tse3.mm.bing.net/th?id=OIP.USS0KcRqomch-HIGU8Gh8wHaEK&pid=Api&P=0&w=355&h=201')
 sports_article_4.image.attach(io: file, filename: 'hoc.jpg')
@@ -55,7 +59,8 @@ sports_article_5 = Article.create(
   category: 'politics',
   content: "Naples and the surrounding region already have a curfew in place and many schools are shut but Vincenzo De Luca, head of Campania, said on Facebook: 'We need to shut everything down for a month, for 40 days.",
   journalist_id: journalist.id,
-  premium: false
+  premium: false,
+  location: "International"
 )
 file = URI.open('https://tse2.mm.bing.net/th?id=OIP.hBwUc6d0KlIz1Rsi5CDSywHaE8&pid=Api&P=0&w=278&h=186')
 sports_article_5.image.attach(io: file, filename: 'napoles.jpg')
@@ -66,7 +71,8 @@ sports_article_6 = Article.create(
   category: 'politics',
   content: "Both the men's and women's 2020 competitions were postponed in March because of the Covid-19 outbreak, with four teams still chasing the title in the men's tournament and England dominating the women's championship.",
   journalist_id: journalist.id,
-  premium: false
+  premium: false,
+  location: "International"
 )
 file = URI.open('https://tse3.mm.bing.net/th?id=OIP.USS0KcRqomch-HIGU8Gh8wHaEK&pid=Api&P=0&w=355&h=201')
 sports_article_6.image.attach(io: file, filename: 'hoc.jpg')
@@ -77,7 +83,8 @@ sports_article_7 = Article.create(
   category: 'politics',
   content: 'Emmanuel Macron said people must stay indoors from 9pm to 6am to help control the spread of coronavirus.',
   journalist_id: journalist.id,
-  premium: true
+  premium: true,
+  location: "International"
 )
 file = URI.open('https://www.jta.org/wp-content/uploads/2017/05/macron-3.jpg')
 sports_article_7.image.attach(io: file, filename: 'macron.jpg')
@@ -88,7 +95,8 @@ sports_article_8 = Article.create(
   category: 'politics',
   content: "Both the men's and women's 2020 competitions were postponed in March because of the Covid-19 outbreak, with four teams still chasing the title in the men's tournament and England dominating the women's championship.",
   journalist_id: journalist.id,
-  premium: true
+  premium: true,
+  location: "International"
 )
 file = URI.open('https://tse3.mm.bing.net/th?id=OIP.USS0KcRqomch-HIGU8Gh8wHaEK&pid=Api&P=0&w=355&h=201')
 sports_article_8.image.attach(io: file, filename: 'hoc.jpg')
@@ -99,7 +107,8 @@ sports_article_4 = Article.create(
   category: 'politics',
   content: "Both the men's and women's 2020 competitions were postponed in March because of the Covid-19 outbreak, with four teams still chasing the title in the men's tournament and England dominating the women's championship.",
   journalist_id: journalist.id,
-  premium: false
+  premium: false,
+  location: "International"
 )
 file = URI.open('https://tse3.mm.bing.net/th?id=OIP.USS0KcRqomch-HIGU8Gh8wHaEK&pid=Api&P=0&w=355&h=201')
 sports_article_4.image.attach(io: file, filename: 'hoc.jpg')
@@ -107,7 +116,7 @@ sports_article_4.image.attach(io: file, filename: 'hoc.jpg')
 local_article_1 = Article.create(
   title: 'STOCKHOLM: Man hotade att skjuta polis – varningsskott avlossades',
   lead: 'En man i 55-årsåldern har sedan tidigare varit anhållen i sin frånvaro efter att ha hotat personal från Kronofogden.',
-  category: '',
+  category: 'sports',
   content: 'Under lördagskvällen var polisen på plats vid mannens bostad för att hämta in honom. På plats så hotar han polisen med vapen – och polisen fick avlossa varningsskott. – Mannen hotar att skjuta polisen om de går in i bostaden. Man blev tvungen att avväpna personen som nu är frihetsberövad, säger Magnus Magnus Jansson Klarin, presstalesperson vid polisen region Mitt. Polisen har upprättat en anmälan om hot mot tjänsteman, och bostaden spärras av för en teknisk undersökning som kommer att genomföras under söndagen.',
   journalist_id: journalist.id,
   premium: false,
@@ -159,7 +168,7 @@ local_article_5 = Article.create(
   content: 'At the height of the surge, on July 16, the U.S. saw more than 77,362 reported new cases of COVID-19. On Friday, the U.S. reached 83,757 new daily cases, according to by Johns Hopkins University. The news comes on the heels of a study by the University of Washington School of Medicine that projected more than 500,000 Americans could die by the end of February in part because of the nation’s current patchwork of COVID-19 mandates and the inconsistent use of masks to prevent virus spread ',
   journalist_id: journalist.id,
   premium: false,
-  location: 'United States of America'
+  location: "International"
 )
 file = URI.open('https://imgs.aftonbladet-cdn.se/v2/images/7e4109ff-e4e9-4708-a9d0-4bae78d31405?fit=crop&h=733&q=50&w=1100&s=c4632b1ea1cd3126e238e049078623bd7c009074')
 local_article_5.image.attach(io: file, filename: 'hoc.jpg')
@@ -171,7 +180,7 @@ local_article_6 = Article.create(
   content: 'The bodies of Lyle and Marilyn Hildeman were recovered Friday from their burned residence. The fire is one of the two largest wildfires in Colorado history, both of which are still burning in the state. In a video posted to Facebook, Grand County Sheriff Brett Schroetlin described the events around the couples decision to stay with their home outside Grand Lake, which he said had been in their family for many years.',
   journalist_id: journalist.id,
   premium: false,
-  location: 'United States of America'
+  location: "International"
 )
 file = URI.open('https://media13.s-nbcnews.com/i/MSNBC/Components/Video/202010/f_mo_la_troublesome_fire_201021.jpg')
 local_article_6.image.attach(io: file, filename: 'hoc.jpg')
@@ -183,7 +192,7 @@ local_article_7 = Article.create(
   content: 'The bodies of Lyle and Marilyn Hildeman were recovered Friday from their burned residence. The fire is one of the two largest wildfires in Colorado history, both of which are still burning in the state. In a video posted to Facebook, Grand County Sheriff Brett Schroetlin described the events around the couples decision to stay with their home outside Grand Lake, which he said had been in their family for many years.',
   journalist_id: journalist.id,
   premium: false,
-  location: 'United States of America'
+  location: "International"
 )
 file = URI.open('https://img.112.international/original/2020/09/24/291594.jpg')
 local_article_7.image.attach(io: file, filename: 'hoc.jpg')
@@ -195,7 +204,7 @@ local_article_8 = Article.create(
   content: 'National File, a conservative news site, published images Friday asserting the image was Kelly, along with images from a yearbook reportedly dating to the mid-1980s. The site did not quote anyone verifying the images were of Kelly. Three former classmates of Kellys said the photos are not of him. Kellys campaign called the article false. Mark Baden, Kellys roommate at the Merchant Marine Academy, said the images are not of Kelly. ',
   journalist_id: journalist.id,
   premium: false,
-  location: 'United States of America'
+  location: "International"
 )
 file = URI.open('https://www.gannett-cdn.com/presto/2020/08/05/PPHX/0ee418ed-8229-48bb-ba41-a6068ab9908e-markkelly_2.jpg')
 local_article_8.image.attach(io: file, filename: 'hoc.jpg')

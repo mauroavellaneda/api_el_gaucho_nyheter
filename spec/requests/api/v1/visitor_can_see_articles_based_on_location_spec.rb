@@ -1,32 +1,62 @@
-RSpec.describe "Visitor can see articles based on location", type: :request do
-  let!(:journalist) { create(:user, role: "journalist") }
-  let!(:swedish_articles) { create(:article, location: "Sweden", journalist_id: journalist.id) }
-  let!(:american_articles) { create(:article, location: "United States of America", journalist_id: journalist.id) }
-
-  describe "successfully with location in Sweden" do
-    before do
-      get "/api/v1/articles",
-          params: { location: "Sweden" }
+RSpec.describe "GET /api/v1/articles", type: :request do
+  let!(:swedish_articles) do
+    3.times do
+      create(:article, title: "This happened in Sweden", location: "Sweden")
     end
-    it "returns a 200 response" do
-      expect(response.status).to eq 200
-    end
-    it "should return the correct location on articles from Sweden " do
-      expect(response_json["articles"].first["location"]).to eq "Sweden"
+  end
+  let!(:international_articles) do
+    3.times do
+      create(:article, title: "This happened in United States of America", location: "International")
     end
   end
 
-  describe "successfully United States of America" do
+  describe "successfully location Sweden" do
     before do
       get "/api/v1/articles",
-          params: { location: "United States of America" }
-    end
-    it "returns a 200 response" do
-      expect(response.status).to eq 200
+          params: {
+            location: "Sweden",
+          }
     end
 
-    it "should return the correct location on articles from United States " do
-      expect(response_json["articles"].last["location"]).to eq "United States of America"
+    it "is expected to respond with ok status" do
+      expect(response).to have_http_status :ok
+    end
+
+    it "is expected to return a specific article title" do
+      expect(response_json["articles"].first["title"]).to eq "This happened in Sweden"
+    end
+
+    it "is expected to return articles with location: Sweden" do
+      expect(response_json["articles"].third["location"]).to eq "Sweden"
+    end
+
+    it "is expected to return 3 articles" do
+      expect(response_json["articles"].count).to eq 3
+    end
+  end
+
+  describe "successfully returns articles with -location: International" do
+    before do
+      get "/api/v1/articles",
+          params: {
+            location: "United States of America",
+          }
+    end
+
+    it "is expected to respond with ok status" do
+      expect(response).to have_http_status :ok
+    end
+
+    it "is expected to return a specific article title" do
+      expect(response_json["articles"].first["title"]).to eq "This happened in United States of America"
+    end
+
+    it "is expected to return articles with location: International" do
+      expect(response_json["articles"].third["location"]).to eq "International"
+    end
+
+    it "is expected to return 3 articles" do
+      expect(response_json["articles"].count).to eq 3
     end
   end
 end
