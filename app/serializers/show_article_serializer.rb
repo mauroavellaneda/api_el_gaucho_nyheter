@@ -1,6 +1,6 @@
 class ShowArticleSerializer < ActiveModel::Serializer
   include ActionView::Helpers::TextHelper
-  attributes :id, :title, :lead, :content, :image, :category, :premium
+  attributes :id, :title, :lead, :content, :image
 
   def content
     unless object.premium
