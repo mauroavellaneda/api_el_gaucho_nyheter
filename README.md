@@ -1,6 +1,6 @@
 # api_el_gaucho_nyheter
 
-[![Build Status]]()
+
 
 This is the API to our project El Gaucho Nyheter. 
 Three clients rely on this API:
