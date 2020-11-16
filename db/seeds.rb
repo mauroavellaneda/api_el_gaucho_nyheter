@@ -12,7 +12,6 @@ sports_article_1 = Article.create(
   category: "sports",
   content: "Both the men's and women's 2020 competitions were postponed in March because of the Covid-19 outbreak, with four teams still chasing the title in the men's tournament and England dominating the women's championship.",
   journalist_id: journalist.id,
-  location: 'Sweden',
   premium: false
 
 )
@@ -26,7 +25,6 @@ sports_article_2 = Article.create(
   category: "sports",
   content: "Both the men's and women's 2020 competitions were postponed in March because of the Covid-19 outbreak, with four teams still chasing the title in the men's tournament and England dominating the women's championship.",
   journalist_id: journalist.id,
-  location: 'Sweden',
   premium: false
 
 )
@@ -40,7 +38,6 @@ sports_article_3 = Article.create(
   category: "politics",
   content: "Both the men's and women's 2020 competitions were postponed in March because of the Covid-19 outbreak, with four teams still chasing the title in the men's tournament and England dominating the women's championship.",
   journalist_id: journalist.id,
-  location: 'Sweden',
   premium: false
 
 )
@@ -54,7 +51,6 @@ sports_article_4 = Article.create(
   category: "politics",
   content: "Both the men's and women's 2020 competitions were postponed in March because of the Covid-19 outbreak, with four teams still chasing the title in the men's tournament and England dominating the women's championship.",
   journalist_id: journalist.id,
-  location: 'Sweden',
   premium: false
 
 )
@@ -68,7 +64,6 @@ sports_article_5 = Article.create(
   category: "politics",
   content: "Naples and the surrounding region already have a curfew in place and many schools are shut but Vincenzo De Luca, head of Campania, said on Facebook: 'We need to shut everything down for a month, for 40 days.",
   journalist_id: journalist.id,
-  location: 'Sweden',
   premium: false
 
 )
@@ -82,7 +77,6 @@ sports_article_6 = Article.create(
   category: "politics",
   content: "Both the men's and women's 2020 competitions were postponed in March because of the Covid-19 outbreak, with four teams still chasing the title in the men's tournament and England dominating the women's championship.",
   journalist_id: journalist.id,
-  location: 'Sweden',
   premium: false
 
 )
@@ -96,7 +90,6 @@ sports_article_7 = Article.create(
   category: "politics",
   content: "Emmanuel Macron said people must stay indoors from 9pm to 6am to help control the spread of coronavirus.",
   journalist_id: journalist.id,
-  location: 'Sweden',
   premium: true
 
 )
@@ -110,7 +103,6 @@ sports_article_8 = Article.create(
   category: "politics",
   content: "Both the men's and women's 2020 competitions were postponed in March because of the Covid-19 outbreak, with four teams still chasing the title in the men's tournament and England dominating the women's championship.",
   journalist_id: journalist.id,
-  location: 'Sweden',
   premium: true
 
 )
@@ -124,7 +116,6 @@ sports_article_4 = Article.create(
   category: "politics",
   content: "Both the men's and women's 2020 competitions were postponed in March because of the Covid-19 outbreak, with four teams still chasing the title in the men's tournament and England dominating the women's championship.",
   journalist_id: journalist.id,
-  location: 'United States',
   premium: false
 
 )
