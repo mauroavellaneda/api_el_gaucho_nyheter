@@ -1,4 +1,5 @@
 class Api::V1::ArticlesController < ApplicationController
+  rescue_from ActiveRecord::RecordNotFound, with: :render_active_record_error
   before_action :valid_category?, only: :index, if: :selected_category
 
   def index
@@ -11,8 +12,6 @@ class Api::V1::ArticlesController < ApplicationController
       end
 
     render json: articles, each_serializer: ArticlesIndexSerializer
-  rescue StandardError
-    render json: { error: "Sorry, we don't have that category" }, status: :not_found
   end
 
   def show
@@ -33,13 +32,14 @@ class Api::V1::ArticlesController < ApplicationController
   end
 
   def selected_location?
-    !params["local"].nil?
+    !params["location"].nil?
   end
 
   def current_location
-    if params["local"] == "Sweden"
+    if params["location"] == "Sweden"
+      "Sweden"
     else
-      "Unites States of America"
+      "International"
     end
   end
 end

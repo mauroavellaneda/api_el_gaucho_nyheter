@@ -16,7 +16,7 @@ RSpec.describe "POST /api/v1/subscriptions", type: :request do
       interval: "month",
       interval_count: 1,
       name: "El Gaucho Nyheter",
-      product: product.id
+      product: product.id,
     )
   end
 
@@ -52,10 +52,10 @@ RSpec.describe "POST /api/v1/subscriptions", type: :request do
         StripeMock.prepare_card_error(:card_declined, :new_invoice)
 
         post "/api/v1/subscriptions",
-            params: {
-              stripeToken: valid_stripe_token,
-            },
-            headers: headers
+             params: {
+               stripeToken: valid_stripe_token,
+             },
+             headers: headers
       end
 
       it "is expected to return 422 response status" do
