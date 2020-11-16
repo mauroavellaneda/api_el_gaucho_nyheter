@@ -19,7 +19,7 @@ RSpec.describe "POST /v1/admin/articles", type: :request do
                title: "Trump holds first public event since Covid diagnosis",
                lead: "Donald Trump has delivered a speech in front of cheering",
                content: "The event was officially a 'peaceful protest'",
-               category: "local",
+               category: "news",
                image: image,
              },
            }, headers: journalist_headers
@@ -53,7 +53,7 @@ RSpec.describe "POST /v1/admin/articles", type: :request do
                title: "Trump holds first public event since Covid diagnosis",
                lead: "Donald Trump has delivered a speech in front of cheering",
                content: "The event was officially a 'peaceful protest'",
-               category: "local",
+               category: "news",
                image: image,
                premium: true
              },
@@ -72,7 +72,7 @@ RSpec.describe "POST /v1/admin/articles", type: :request do
                title: "Trump holds first public event since Covid diagnosis",
                lead: "Donald Trump has delivered a speech in front of cheering",
                content: "",
-               category: "local",
+               category: "news",
                image: image 
              },
            }, headers: journalist_headers
@@ -96,7 +96,7 @@ RSpec.describe "POST /v1/admin/articles", type: :request do
                title: "Trump holds first public event since Covid diagnosis",
                lead: "Donald Trump has delivered a speech in front of cheering",
                content: "Donald Trump has delivered a speech in front of cheering",
-               category: "local",
+               category: "news",
              },
            }, headers: journalist_headers
     end
@@ -123,7 +123,7 @@ RSpec.describe "POST /v1/admin/articles", type: :request do
                title: "Trump holds first public event since Covid diagnosis",
                lead: "Donald Trump has delivered a speech in front of cheering",
                content: "The event was officially a 'peaceful protest'",
-               category: "local",
+               category: "news",
              },
            }, headers: unauthorized_headers
     end
