@@ -113,30 +113,6 @@ sports_article_4 = Article.create(
 file = URI.open('https://tse3.mm.bing.net/th?id=OIP.USS0KcRqomch-HIGU8Gh8wHaEK&pid=Api&P=0&w=355&h=201')
 sports_article_4.image.attach(io: file, filename: 'hoc.jpg')
 
-local_article_1 = Article.create(
-  title: 'STOCKHOLM: Man hotade att skjuta polis – varningsskott avlossades',
-  lead: 'En man i 55-årsåldern har sedan tidigare varit anhållen i sin frånvaro efter att ha hotat personal från Kronofogden.',
-  category: 'sports',
-  content: 'Under lördagskvällen var polisen på plats vid mannens bostad för att hämta in honom. På plats så hotar han polisen med vapen – och polisen fick avlossa varningsskott. – Mannen hotar att skjuta polisen om de går in i bostaden. Man blev tvungen att avväpna personen som nu är frihetsberövad, säger Magnus Magnus Jansson Klarin, presstalesperson vid polisen region Mitt. Polisen har upprättat en anmälan om hot mot tjänsteman, och bostaden spärras av för en teknisk undersökning som kommer att genomföras under söndagen.',
-  journalist_id: journalist.id,
-  premium: false,
-  location: 'Sweden'
-)
-file = URI.open('https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.aftonbladet.se%2Fnyheter%2Fa%2FvAAm7V%2Fpolis-avlossade-varningsskott&psig=AOvVaw0VHNrBfmCB8IeyZXtAvPRm&ust=1603696562246000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCNDigbmZz-wCFQAAAAAdAAAAABAD')
-local_article_1.image.attach(io: file, filename: 'hoc.jpg')
-
-local_article_2 = Article.create(
-  title: 'UMEÅ: Brand i radhus – en till sjukhus',
-  lead: 'En person hittades av rökdykare i en lägenhet och har förts till sjukhus med ambulans. Skadeläget är oklart.',
-  category: 'politics',
-  content: 'Öppna lågor slog ut ur en radhuslänga i Umeå kommun vid 05.30 under morgonen. Vid klockan 08 meddelar räddningstjänsten att branden är släckt, men att man är kvar och vädrar ut rök från radhuset. En person hittades av rökdykare i en lägenhet och har förts till sjukhus med ambulans. Skadeläget är oklart. En lägenhet bedöms totalförstörd och man går nu igenom resten av bostäderna. Samtliga boende har evakuerats och samlats i en kvarterslokal',
-  journalist_id: journalist.id,
-  premium: false,
-  location: 'Sweden'
-)
-file = URI.open('https://www.google.com/url?sa=i&url=https%3A%2F%2Flokalanyheter.wordpress.com%2F2013%2F03%2F17%2Fvaldsam-brand-i-radhus-i-vallentuna%2F&psig=AOvVaw1f_K_pOWATyiaG32eGYWNu&ust=1603696688088000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCPDyyfaZz-wCFQAAAAAdAAAAABAD')
-local_article_2.image.attach(io: file, filename: 'hoc.jpg')
-
 local_article_3 = Article.create(
   title: 'KIRUNA: Två gripna efter slagsmål på hemmafest',
   lead: 'När polisen kom till platsen påträffades två skadade personer – men ingen av dem ville ha vård.',
